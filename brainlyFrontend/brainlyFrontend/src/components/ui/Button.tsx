@@ -4,7 +4,7 @@ interface ButtonProps {
   text: string;
   startIcon?: any;
   endIcon?: any;
-  onClick?: () => void;
+  onClick: () => void;
 }
 
 const variantStyles = {
@@ -17,7 +17,7 @@ const sizeStyles = {
   md: "py-2 px-4",
   lg: "py-4 px-6",
 };
-const defaultStyles = "rounded-md";
+const defaultStyles = "rounded-md flex";
 export const Button = (props: ButtonProps) => {
   return (
     <button
@@ -25,7 +25,9 @@ export const Button = (props: ButtonProps) => {
         sizeStyles[props.size]
       }`}
     >
+      {props.startIcon ? <div className="pr-2">{props.startIcon}</div> : null}
       {props.text}
+      {props.endIcon}
     </button>
   );
 };
